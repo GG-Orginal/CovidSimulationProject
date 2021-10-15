@@ -1,0 +1,7 @@
+#Python dependencies for this project
+
+python 3.10
+
+pip3
+
+tkinter
