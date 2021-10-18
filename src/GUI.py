@@ -1,7 +1,7 @@
 # Separate from internal logic, this file
 # renders the actual user interface
 import tkinter as tk
-from tkinter import Canvas
+from tkinter import *
 
 def startProgram():
 
