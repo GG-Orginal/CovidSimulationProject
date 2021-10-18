@@ -28,6 +28,9 @@ class Population:
     # This is the count of infected
     infected_counter = 0
 
+    # This is the count of deceased
+    deceased_counter = 0
+
     # This is the count of non_compliance with social distancing
     non_compliance_counter = 0
 

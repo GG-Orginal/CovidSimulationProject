@@ -1,3 +1,5 @@
+
+import InitialPopulation
 class Person:
 
     # This is the indicator for a healthy person (green).
@@ -9,8 +11,39 @@ class Person:
 
     # This is the indicator for social distancing compliance.
     is_compliant = None
+    age = None
+    gender = None
 
     # This is the constructor
-    def __init__(self):
-        self
+    def Person(self, is_healthy, is_infected, is_deceased, is_compliant, age, gender):
+        self.is_healthy = is_healthy
+        self.is_infected = is_infected
+        self.is_deceased = is_deceased
+        self.is_compliant = is_compliant
+        self.age = age
+        self.gender = gender
+
+
+    def changeToInfected(self):
+        self.is_infected = True
+        infected_counter += 1
+
+    def changeToHealthy(self):
+        self.is_healthy = True
+        infected_counter -= 1
+
+    def changeToDeceased(self):
+        self.is_deceased = True
+        deceased_counter += 1
+        infected_counter -= 1
+
+
+
+
+
+
+
+
+
+
 
