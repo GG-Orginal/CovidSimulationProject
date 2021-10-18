@@ -44,7 +44,7 @@ button = tk.Button(
 button.pack()
 
     # Actually start the window
-    mainloop()
+    window.mainloop()
 
     # Everything below this will only run when window is closed
 
