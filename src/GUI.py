@@ -30,7 +30,7 @@ percentPopulation = Spinbox(window, from_=0, to=100)
 percentPopulation.pack()
 def convert():
     spacer2 = tk.Label(window, text="")
-percentButton = tk.Button(window, text='Convert', command=convert)
+percentButton = tk.Button(window, text='Submit', command=convert)
 percentButton.pack()
 spacer1 = tk.Label(window, text="")
 spacer1.pack()
