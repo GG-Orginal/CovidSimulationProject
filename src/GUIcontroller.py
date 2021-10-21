@@ -5,7 +5,7 @@ import GUI
 
 class PersonPixel:
 
-    def PersonPixel(self, person: Person, size: int, x1: int, y1: int):
+    def __init__(self, person: Person, size: int, x1: int, y1: int):
         self.person = person
         self.color = 'green' if person.is_healthy else ('black' if person.is_deceased else 'red')
         self.size = size

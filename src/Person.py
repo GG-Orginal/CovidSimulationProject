@@ -24,7 +24,7 @@ class Person:
     gender = None
 
     # This is the constructor
-    def Person(self, is_healthy, is_infected, is_deceased, is_compliant, age, gender):
+    def __init__(self, is_healthy=True, is_infected=False, is_deceased=False, is_compliant=True, age=25, gender="M"):
         self.is_healthy = is_healthy
         self.is_infected = is_infected
         self.is_deceased = is_deceased
@@ -32,8 +32,8 @@ class Person:
         self.age = age
         self.gender = gender
 
-    def __init__(self):
-        self
+    # def __init__(self):
+    #     self
 
     def changeToInfected(self):
         self.is_infected = True
