@@ -1,13 +1,22 @@
 
-import InitialPopulation
-class Person:
 
-    # This is the indicator for a healthy person (green).
-    is_healthy = None
-    # This is the indicator for an infected person (red).
-    is_infected = None
-    # This is the indicator for a deceased person (black).
-    is_deceased = None
+
+class Person:
+    # # This is the indicator for a healthy person (green).
+    # is_healthy = None
+    # # This is the indicator for an infected person (red).
+    # is_infected = None
+    # # This is the indicator for a deceased person (black).
+    # is_deceased = None
+
+     # This is the count of infected
+    infected_counter = 0
+
+    # This is the count of deceased
+    deceased_counter = 0
+
+    # This is the count of non_compliance with social distancing
+    non_compliance_counter = 0
 
     # This is the indicator for social distancing compliance.
     is_compliant = None
@@ -23,6 +32,8 @@ class Person:
         self.age = age
         self.gender = gender
 
+    def __init__(self):
+        self
 
     def changeToInfected(self):
         self.is_infected = True
@@ -36,14 +47,3 @@ class Person:
         self.is_deceased = True
         deceased_counter += 1
         infected_counter -= 1
-
-
-
-
-
-
-
-
-
-
-

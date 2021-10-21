@@ -1,6 +1,6 @@
 from random import randrange
-from src.Person import Person
-from termcolor import colored
+from Person import Person 
+
 
 class Population:
 
@@ -25,14 +25,14 @@ class Population:
     # This is a list of all the individuals in the sample population
     PersonList = []
 
-    # This is the count of infected
-    infected_counter = 0
+    # # This is the count of infected
+    # infected_counter = 0
 
-    # This is the count of deceased
-    deceased_counter = 0
+    # # This is the count of deceased
+    # deceased_counter = 0
 
-    # This is the count of non_compliance with social distancing
-    non_compliance_counter = 0
+    # # This is the count of non_compliance with social distancing
+    # non_compliance_counter = 0
 
     # This will creates the initial population
     # 5% of the initial population is set to be infected at random
@@ -45,27 +45,27 @@ class Population:
         PersonList.append(p1)
         i = i + 1
 
-    for person in PersonList:
-        is_healthy = person.is_healthy
-        is_compliant = person.is_compliant
-        if is_healthy:
-            print(colored("This person is healthy.", 'green'),  end=" ")
-            if is_compliant:
-                print(colored("Compliance: " + str(person.is_compliant), 'green'))
-            if not is_compliant:
-                print(colored("Compliance: " + str(person.is_compliant), 'red'))
-                non_compliance_counter += 1
-        elif not is_healthy:
-            print(colored("This person is infected.", 'red'), end=" ")
-            if is_compliant:
-                print(colored("Compliance: " + str(person.is_compliant), 'green'))
-            if not is_compliant:
-                print(colored("Compliance: " + str(person.is_compliant), 'red'))
-                non_compliance_counter += 1
-            infected_counter += 1
+    # for person in PersonList:
+    #     is_healthy = person.is_healthy
+    #     is_compliant = person.is_compliant
+    #     if is_healthy:
+    #         print(colored("This person is healthy.", 'green'),  end=" ")
+    #         if is_compliant:
+    #            print(colored("Compliance: " + str(person.is_compliant), 'green'))
+    #         if not is_compliant:
+    #             print(colored("Compliance: " + str(person.is_compliant), 'red'))
+    #             non_compliance_counter += 1
+    #     elif not is_healthy:
+    #         print(colored("This person is infected.", 'red'), end=" ")
+    #         if is_compliant:
+    #             print(colored("Compliance: " + str(person.is_compliant), 'green'))
+    #         if not is_compliant:
+    #             print(colored("Compliance: " + str(person.is_compliant), 'red'))
+    #             non_compliance_counter += 1
+    #         infected_counter += 1
 
-    print("Number of Infected: " + str(infected_counter))
-    print("Number of Non-Compliance: " + str(non_compliance_counter))
+    # print("Number of Infected: " + str(infected_counter))
+    # print("Number of Non-Compliance: " + str(non_compliance_counter))
 
 
 
