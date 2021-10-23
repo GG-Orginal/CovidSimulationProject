@@ -145,3 +145,7 @@ dmypy.json
 *.iml
 .idea/misc.xml
 .idea/CovidSimulationProject.iml
+*.xml
+*.iml
+*.xml
+*.txt
