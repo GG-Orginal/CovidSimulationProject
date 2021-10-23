@@ -2,12 +2,12 @@
 
 
 class Person:
-    # # This is the indicator for a healthy person (green).
-    # is_healthy = None
-    # # This is the indicator for an infected person (red).
-    # is_infected = None
-    # # This is the indicator for a deceased person (black).
-    # is_deceased = None
+    # This is the indicator for a healthy person (green).
+    is_healthy = None
+    # This is the indicator for an infected person (red).
+    is_infected = None
+    # This is the indicator for a deceased person (black).
+    is_deceased = None
 
      # This is the count of infected
     infected_counter = 0
@@ -22,6 +22,9 @@ class Person:
     is_compliant = None
     age = None
     gender = None
+    race = None
+    person = None
+    
 
     # This is the constructor
     def __init__(self, is_healthy=True, is_infected=False, is_deceased=False, is_compliant=True, age=25, gender="M"):
@@ -45,5 +48,5 @@ class Person:
 
     def changeToDeceased(self):
         self.is_deceased = True
-        deceased_counter += 1
+        self.deceased_counter += 1
         infected_counter -= 1
