@@ -12,5 +12,7 @@
     "python.testing.unittestEnabled": true,
     "python.testing.pytestArgs": [
         "src"
-    ]
+    ],
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.unittestEnabled": true
 }
