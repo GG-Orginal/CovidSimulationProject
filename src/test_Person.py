@@ -86,26 +86,3 @@ class TestPerson(unittest.TestCase):
         sample_deceased_counter.changeToInfected()
         actual = sample_deceased_counter.infected_counter
         self.assertEqual(expected, actual)
-
-
-  
-
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-    
-    #def test_changeToHealthy():
-
-    
-   # def test_changeToDeceased(); 
