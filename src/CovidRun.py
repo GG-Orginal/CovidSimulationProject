@@ -1,11 +1,6 @@
-import numpy as np
-import array as arr
-
-from termcolor import colored
-
 from InitialPopulation import createPopulation
 from Person import Person
-from simulation import updateStatus
+from Simulation import updateStatus
 
 
 def print_stats(state):

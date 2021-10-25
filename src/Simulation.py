@@ -66,5 +66,5 @@ def updateStatus(initial_population):
     return new_population_state
 
 
-class simulation:
+class Simulation:
     pass

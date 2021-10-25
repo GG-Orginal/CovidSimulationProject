@@ -1,7 +1,7 @@
 from GUI import *
 from GUIcontroller import *
 from InitialPopulation import *
-from simulation import *
+from Simulation import *
 from Person import Person
 import time
 
