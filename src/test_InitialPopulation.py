@@ -1,6 +1,6 @@
 import unittest
 
-from src.InitialPopulation import createPopulation
+from InitialPopulation import createPopulation
 
 
 class TestInitialPopulation(unittest.TestCase):

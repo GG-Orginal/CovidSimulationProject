@@ -2,7 +2,6 @@
 from Person import Person
 import tkinter as tk
 import GUI
-import numpy as np
 
 ####################################################################################
 ########################### BACKEND TO GUI #########################################
@@ -10,7 +9,7 @@ import numpy as np
 
 class PersonPixel:
 
-    def __init__(self, person: Person, x1: int, y1: int, size: int):
+    def __init__(self, person, x1, y1, size):
         self.person = person
         self.color = 'green' if person.is_healthy else ('black' if person.is_deceased else 'red')
         self.outline = 'white' if person.is_compliant else 'black'
@@ -37,6 +36,7 @@ def render_snapshot(people):
             px = PersonPixel(people[i][j],i*15,j*15,15)
 
             px.drawPerson()
+            
 
 def updatePopStats(new_infections,total_infected,total_deceased):
 
