@@ -4,7 +4,7 @@ import array as arr
 from termcolor import colored
 
 from InitialPopulation import createPopulation
-from src.Person import Person
+from Person import Person
 from simulation import updateStatus
 
 

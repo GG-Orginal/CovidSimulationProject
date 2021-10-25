@@ -42,11 +42,11 @@ def updateStatus(initial_population):
     for i in range(len(new_population_state)):
         for j in range(len(new_population_state[i])):
             if initial_population[i][j].is_infected:
-                if j < 9:
+                if j < 19:
                     transmit(new_population_state[i][j], new_population_state[i][j + 1])
                 if j > 0:
                     transmit(new_population_state[i][j], new_population_state[i][j - 1])
-                if i < 9:
+                if i < 19:
                     transmit(new_population_state[i][j], new_population_state[i + 1][j])
                 if i > 0:
                     transmit(new_population_state[i][j], new_population_state[i - 1][j])

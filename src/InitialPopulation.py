@@ -23,7 +23,7 @@ def createPopulation():
         return is_compliant
 
     # This is a list of all the individuals in the sample population
-    population_array = [[Person() for j in range(10)] for i in range(10)]
+    population_array = [[Person() for j in range(20)] for i in range(20)]
 
     # This will creates the initial population
     # 5% of the initial population is set to be infected at random

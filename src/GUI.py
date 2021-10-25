@@ -44,8 +44,11 @@ button = tk.Button(
 button.pack()
 
 # Open window
-def startProgram():
+# def startProgram():
 
     # Actually start the window
-    window.mainloop()
-    print("End of program")
+    # window.mainloop()
+    # print("End of program")
+
+
+    

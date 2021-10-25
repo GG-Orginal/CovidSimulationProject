@@ -3,11 +3,18 @@ from GUIcontroller import *
 from InitialPopulation import *
 from simulation import *
 from Person import Person
+import time
 
-ppl = InitialPopulation.createPopulation()
+ppl = createPopulation()
 
-render_snapshot(ppl)
+#startProgram()
 
-updateStatus(ppl)
+while True:
 
-startProgram()
+    updateStatus(ppl)
+
+    render_snapshot(ppl)
+
+    window.update()
+
+    time.sleep(1)
