@@ -32,20 +32,24 @@ class Person:
 
     def changeToInfected(self):
         self.is_infected = True
-        self.infected_counter += 1
+        self.is_healthy = False
+        Person.infected_counter += 1
 
         # number can be changed later, but set to 10 for now
-        length_of_infection = 10
+        self.length_of_infection = 10
 
     def changeToHealthy(self):
         self.is_healthy = True
-        self.infected_counter -= 1
+        self.is_infected = False
+        Person.infected_counter -= 1
 
         # set the healthy person to immune and change the length of their immunity to 20 days
         self.immune = True
-        length_of_immunity = 20
+        self.length_of_immunity = 20
 
     def changeToDeceased(self):
         self.is_deceased = True
-        self.deceased_counter += 1
-        self.infected_counter -= 1
+        self.is_healthy = False
+        self.is_infected = False
+        Person.deceased_counter += 1
+        Person.infected_counter -= 1

@@ -9,12 +9,15 @@ ppl = createPopulation()
 
 #startProgram()
 
-while True:
+def updateStuff():
 
     updateStatus(ppl)
-
     render_snapshot(ppl)
+    updatePopStats(0,Person.infected_counter,Person.deceased_counter)
+    window.after(1000, updateStuff)
+    # time.sleep(1)
 
-    window.update()
 
-    time.sleep(1)
+updateStuff()
+
+window.mainloop()

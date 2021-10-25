@@ -4,6 +4,10 @@ import tkinter as tk
 import GUI
 import numpy as np
 
+####################################################################################
+########################### BACKEND TO GUI #########################################
+####################################################################################
+
 class PersonPixel:
 
     def __init__(self, person: Person, x1: int, y1: int, size: int):
@@ -34,3 +38,18 @@ def render_snapshot(people):
 
             px.drawPerson()
 
+def updatePopStats(new_infections,total_infected,total_deceased):
+
+    GUI.entryDead.delete(0, tk.END)
+    GUI.entryDead.insert(0, total_deceased)
+    GUI.entryTotalInf.delete(0, tk.END)
+    GUI.entryTotalInf.insert(1, total_infected)
+    GUI.entryNewInf.delete(0, tk.END)
+    GUI.entryNewInf.insert(0, new_infections)
+
+
+####################################################################################
+########################### GUI TO BACKEND #########################################
+####################################################################################
+
+# def reset_simulation():
