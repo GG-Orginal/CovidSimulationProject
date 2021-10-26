@@ -53,3 +53,9 @@ class Person:
         self.is_infected = False
         Person.deceased_counter += 1
         Person.infected_counter -= 1
+
+
+    @staticmethod
+    def reset_counters():
+        Person.infected_counter = 0
+        Person.deceased_counter = 0

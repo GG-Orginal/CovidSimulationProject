@@ -1,7 +1,7 @@
 # Contains the logic for the loop that
 # executes the actual simulation
 from InitialPopulation import *
-from Person import *
+from Person import Person
 
 
 # transmit method to see if the disease was transmitted between people
@@ -63,8 +63,17 @@ def updateStatus(initial_population):
                     transmit(initial_population[i][j], new_population_state[i + 1][j])
                 if i > 0:
                     transmit(initial_population[i][j], new_population_state[i - 1][j])
+
+    Simulation.current_population = new_population_state[:]
     return new_population_state
 
 
+def reset_population():
+    Simulation.current_population = createPopulation()
+    Person.reset_counters()
+
+
 class Simulation:
-    pass
+    
+    current_population = createPopulation()
+    

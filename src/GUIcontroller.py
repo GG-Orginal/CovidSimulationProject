@@ -2,6 +2,8 @@
 from Person import Person
 import tkinter as tk
 import GUI
+import Simulation
+
 
 ####################################################################################
 ########################### BACKEND TO GUI #########################################
@@ -52,4 +54,5 @@ def updatePopStats(new_infections,total_infected,total_deceased):
 ########################### GUI TO BACKEND #########################################
 ####################################################################################
 
-# def reset_simulation():
+def reset_simulation():
+    Simulation.reset_population()

@@ -1,6 +1,7 @@
 # Separate from internal logic, this file
 # renders the actual user interface
 import tkinter as tk
+import GUIcontroller
 
 # Window set up
 window = tk.Tk()
@@ -34,14 +35,22 @@ percentButton = tk.Button(window, text='Submit', command=convert)
 percentButton.pack()
 spacer1 = tk.Label(window, text="")
 spacer1.pack()
+
+def callbackReset():
+    GUIcontroller.reset_simulation()
+
 button = tk.Button(
     text="Restart Simulation",
     width=25,
     height=5,
     bg="white",
     fg="black",
+    command=callbackReset
 )
 button.pack()
+
+
+
 
 # Open window
 # def startProgram():

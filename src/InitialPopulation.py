@@ -2,6 +2,8 @@ from Person import Person
 from random import randrange
 
 
+
+
 def createPopulation():
 
     # This randomly determines if a person is healthy or not initially.
