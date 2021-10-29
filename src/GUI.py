@@ -161,8 +161,19 @@ spacer.pack()
 
 # Restart Simulation - this restarts the simulation based on user inputs
 def callbackReset():
-    GUIcontroller.changeValues(GUI.user_input_initial_infection_rate,
-                               GUI.user_input_non_compliance_rate)
+    # Initial Population Values
+    GUIcontroller.changeValues(
+        GUI.user_input_initial_infection_rate,
+        GUI.user_input_non_compliance_rate)
+
+    # Simulation Runtime Values
+    GUIcontroller.changeRates(
+        GUI.user_input_infection_time,
+        GUI.user_input_immunity_duration,
+        GUI.user_input_transmission_rate,
+        GUI.user_input_death_rate
+    )     
+                          
     GUIcontroller.reset_simulation()
 
 

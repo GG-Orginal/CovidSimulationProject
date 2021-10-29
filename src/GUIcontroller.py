@@ -60,3 +60,10 @@ def reset_simulation():
 def changeValues(val1, val2):
     InitialPopulation.user_input_initial_infection_rate = val1
     InitialPopulation.user_input_non_compliance_rate = val2
+
+
+def changeRates(infectionLength, immunityDuration, transmissionRate, deathRate):
+    Person.default_infection_length = infectionLength
+    Person.default_immunity_duration = immunityDuration
+    Simulation.rate_of_transmission = transmissionRate
+    Simulation.death_rate = deathRate

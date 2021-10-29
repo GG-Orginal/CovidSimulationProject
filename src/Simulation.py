@@ -8,6 +8,7 @@ class Simulation:
     
     current_population = createPopulation()
     rate_of_transmission = 75
+    death_rate = 3
 
 # transmit method to see if the disease was transmitted between people
 def transmit(person, neighbor):
@@ -27,7 +28,6 @@ def transmit(person, neighbor):
 
     # Generate a number that is less than 75, if so, it will return true
     random = randrange(100) < Simulation.rate_of_transmission
-    print(Simulation.rate_of_transmission)
     if random:
         # Possibility that the virus will be transmitted
         # Person.infected_counter += 1
