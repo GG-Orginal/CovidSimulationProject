@@ -3,6 +3,7 @@ from Person import Person
 import tkinter as tk
 import GUI
 import Simulation
+from Simulation import Simulation as sim
 import InitialPopulation
 
 
@@ -65,5 +66,5 @@ def changeValues(val1, val2):
 def changeRates(infectionLength, immunityDuration, transmissionRate, deathRate):
     Person.default_infection_length = infectionLength
     Person.default_immunity_duration = immunityDuration
-    Simulation.rate_of_transmission = transmissionRate
-    Simulation.death_rate = deathRate
+    sim.rate_of_transmission = transmissionRate
+    sim.death_rate = deathRate

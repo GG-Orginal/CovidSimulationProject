@@ -1,12 +1,10 @@
 # Contains the logic for the loop that
 # executes the actual simulation
-from InitialPopulation import *
+import InitialPopulation
 from Person import Person
 
-
 class Simulation:
-    
-    current_population = createPopulation()
+    current_population = InitialPopulation.createPopulation()
     rate_of_transmission = 75
     death_rate = 3
 
@@ -27,7 +25,11 @@ def transmit(person, neighbor):
         return
 
     # Generate a number that is less than 75, if so, it will return true
-    random = randrange(100) < Simulation.rate_of_transmission
+    randrangenum = InitialPopulation.randrange(100)
+    #print(str(randrangenum) + "<" + str(Simulation.rate_of_transmission) + str(int(randrangenum) < int(Simulation.rate_of_transmission)))
+    random = int(randrangenum) < int(Simulation.rate_of_transmission)
+    #print(random)
+    #print(Simulation.rate_of_transmission)
     if random:
         # Possibility that the virus will be transmitted
         # Person.infected_counter += 1
@@ -50,7 +52,7 @@ def transmit(person, neighbor):
 def initiatePopulation():
     # original_population_state = [[Person() for x in range(10)] for y in range (10)]
     # original_population_state = np.empty((10, 10), dtype=Person)
-    original_population_state = createPopulation()
+    original_population_state = InitialPopulation.createPopulation()
     return original_population_state
 
 
@@ -70,12 +72,12 @@ def updateStatus(initial_population):
                 if i > 0:
                     transmit(initial_population[i][j], new_population_state[i - 1][j])
 
-    Simulation.current_population = new_population_state[:]
+    current_population = new_population_state[:]
     return new_population_state
 
 
-def reset_population():
-    Simulation.current_population = createPopulation()
+def reset_population(): 
+    Simulation.current_population = InitialPopulation.createPopulation()
     Person.reset_counters()
 
 
