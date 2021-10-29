@@ -24,72 +24,147 @@ entryNewInf.pack()
 canvas = tk.Canvas(window, width=300, height=300, bg="White")
 canvas.place(relx=0.5, rely=0.5, anchor="center")
 canvas.pack(pady=10)
-percentageLabel = tk.Label(text="Percentage of population complying \n with social distancing recommendations")
+
+# --------------------------------------------------------------------------------------
+# Non-Compliance Rate
+# --------------------------------------------------------------------------------------
+user_input_non_compliance_rate = 25
+
+
+def getUserInputNonComplianceRate(val):
+    GUI.user_input_non_compliance_rate = val
+
+
+percentageLabel = tk.Label(text="Social Distancing Non-Compliance % (Works)")
 percentageLabel.pack()
-sliderPopulation = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL)
-sliderPopulation.set(23)
+sliderPopulation = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
+                            command=getUserInputNonComplianceRate)
+sliderPopulation.set(25)
 sliderPopulation.pack()
 tk.Button(window, text='Submit').pack()
 
+# --------------------------------------------------------------------------------------
+# Initial Population Size
+# --------------------------------------------------------------------------------------
+user_input_initial_population_size = 20
+
+
+def getUserInputInitialPopulationSize(val):
+    GUI.user_input_initial_population_size = val
+
+
 PopulationSize = tk.Label(text="Population size")
 PopulationSize.place(x=55, y=25)
-sliderPopulationSize = tk.Scale(window, from_=3, to=50, orient=HORIZONTAL)
-sliderPopulationSize.set(23)
+sliderPopulationSize = tk.Scale(window, from_=3, to=50, orient=HORIZONTAL,
+                                command=getUserInputInitialPopulationSize)
+sliderPopulationSize.set(20)
 sliderPopulationSize.pack(side=tk.RIGHT)
 tk.Button(window, text='Submit').place(x=70, y=90)
 sliderPopulationSize.place(x=45, y=50)
 
-PopulationInfected = tk.Label(text="Percentage of initial \n population that is infected")
+# --------------------------------------------------------------------------------------
+# Initial Infection Rate
+# --------------------------------------------------------------------------------------
+user_input_initial_infection_rate = 5
+
+
+def getUserInputInitialInfectionRate(val):
+    GUI.user_input_initial_infection_rate = val
+
+
+PopulationInfected = tk.Label(window, text="Initial Infection Rate % (Works)")
 PopulationInfected.place(x=525, y=20)
-sliderPopulationInfected = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL)
-sliderPopulationInfected.set(23)
+sliderPopulationInfected = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
+                                    command=getUserInputInitialInfectionRate)
+sliderPopulationInfected.set(5)
 sliderPopulationInfected.pack(side=tk.RIGHT)
+entry1 = tk.Entry(window)
 tk.Button(window, text='Submit').place(x=560, y=90)
 sliderPopulationInfected.place(x=535, y=50)
 
+# --------------------------------------------------------------------------------------
+# Death Rate
+# --------------------------------------------------------------------------------------
+
+user_input_death_rate = 3
+
+
+def getUserInputDeathRate(val):
+    GUI.user_input_death_rate = val
+
+
 PopulationDeath = tk.Label(text="Death rate")
 PopulationDeath.place(x=65, y=455)
-sliderPopulationDeath = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL)
-sliderPopulationDeath.set(23)
+sliderPopulationDeath = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
+                                 command=getUserInputDeathRate)
+sliderPopulationDeath.set(3)
 sliderPopulationDeath.pack(side=tk.RIGHT)
 tk.Button(window, text='Submit').place(x=70, y=520)
 sliderPopulationDeath.place(x=45, y=480)
 
+# --------------------------------------------------------------------------------------
+# Transmission Rate
+# --------------------------------------------------------------------------------------
+
+user_input_transmission_rate = 75
+
+
+def getUserInputTransmissionRate(val):
+    GUI.user_input_transmission_rate = val
+
+
 PopulationTransmission = tk.Label(text="Rate of \n Transmission")
 PopulationTransmission.place(x=545, y=445)
-sliderPopulationTransmission = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL)
-sliderPopulationTransmission.set(23)
+sliderPopulationTransmission = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
+                                        command=getUserInputTransmissionRate)
+sliderPopulationTransmission.set(75)
 sliderPopulationTransmission.pack(side=tk.RIGHT)
 tk.Button(window, text='Submit').place(x=560, y=520)
 sliderPopulationTransmission.place(x=535, y=480)
 
-def convert():
-    spacer2 = tk.Label(window, text="")
+# --------------------------------------------------------------------------------------
+# Immunity Duration
+# --------------------------------------------------------------------------------------
+user_input_immunity_duration = 20
 
 
-def convert2():
-    spacer2 = tk.Label(window, text="")
+def getUserInputImmunityDuration():
+    GUI.user_input_immunity_duration = tk.Label(window, text="")
 
 
 ImmunityLabel = tk.Label(text="Immunity Rate")
 ImmunityLabel.place(x=595, y=225)
-ImmunitySpinbox= tk.Spinbox(window, from_=0, to=100)
+ImmunitySpinbox = tk.Spinbox(window, from_=0, to=100)
 ImmunitySpinbox.place(x=570, y=260)
-percentButton = tk.Button(window, text='Submit', command=convert)
+percentButton = tk.Button(window, text='Submit', command=getUserInputImmunityDuration)
 percentButton.place(x=610, y=280)
+
+# --------------------------------------------------------------------------------------
+# Infection Time
+# --------------------------------------------------------------------------------------
+user_input_infection_time = 5
+
+
+def getUserInputInfectionTime():
+    GUI.user_input_infection_time = tk.Label(window, text="")
+
 
 TimeLabel = tk.Label(text="Infection Time")
 TimeLabel.place(x=65, y=225)
-TimeSpinbox= tk.Spinbox(window, from_=0, to=100)
+TimeSpinbox = tk.Spinbox(window, from_=0, to=100)
 TimeSpinbox.place(x=40, y=260)
-percent2Button = tk.Button(window, text='Submit', command=convert2)
+percent2Button = tk.Button(window, text='Submit', command=getUserInputInfectionTime)
 percent2Button.place(x=75, y=280)
+spacer = tk.Label(window, text="")
+spacer.pack()
 
-spacer1 = tk.Label(window, text="")
-spacer1.pack()
 
+# Restart Simulation - this restarts the simulation based on user inputs
 def callbackReset():
+    GUIcontroller.changeValues(GUI.user_input_initial_infection_rate,
+                               GUI.user_input_non_compliance_rate)
     GUIcontroller.reset_simulation()
+
 
 button = tk.Button(
     text="Restart Simulation",
@@ -102,14 +177,13 @@ button = tk.Button(
 button.pack()
 
 
-
-
 # Open window
 # def startProgram():
 
-    # Actually start the window
-    # window.mainloop()
-    # print("End of program")
+# Actually start the window
+# window.mainloop()
+# print("End of program")
 
 
-    
+class GUI:
+    pass

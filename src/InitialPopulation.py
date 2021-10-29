@@ -2,14 +2,15 @@ from Person import Person
 from random import randrange
 
 
-
+user_input_initial_infection_rate = 5;
+user_input_non_compliance_rate = 25;
 
 def createPopulation():
 
     # This randomly determines if a person is healthy or not initially.
     def initial_health_stage():
         value_health = randrange(100) + 1
-        if value_health > 5:
+        if value_health > int(user_input_initial_infection_rate):
             is_healthy = True
         else:
             is_healthy = False
@@ -18,7 +19,7 @@ def createPopulation():
     # This randomly determines if a person is following social distancing or not. (25% non compliance rate)
     def compliance():
         value_non_compliance = randrange(100) + 1
-        if value_non_compliance > 25:
+        if value_non_compliance > int(user_input_non_compliance_rate):
             is_compliant = True
         else:
             is_compliant = False
