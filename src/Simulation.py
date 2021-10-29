@@ -4,6 +4,11 @@ from InitialPopulation import *
 from Person import Person
 
 
+class Simulation:
+    
+    current_population = createPopulation()
+    rate_of_transmission = 75
+
 # transmit method to see if the disease was transmitted between people
 def transmit(person, neighbor):
     # check to see if the person is compliant and the neighbor is compliant
@@ -21,7 +26,8 @@ def transmit(person, neighbor):
         return
 
     # Generate a number that is less than 75, if so, it will return true
-    random = randrange(100) < 75
+    random = randrange(100) < Simulation.rate_of_transmission
+    print(Simulation.rate_of_transmission)
     if random:
         # Possibility that the virus will be transmitted
         # Person.infected_counter += 1
@@ -73,7 +79,7 @@ def reset_population():
     Person.reset_counters()
 
 
-class Simulation:
-    
-    current_population = createPopulation()
+
+
+
     
