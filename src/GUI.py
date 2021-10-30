@@ -41,7 +41,6 @@ sliderPopulation = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
                             command=getUserInputNonComplianceRate)
 sliderPopulation.set(25)
 sliderPopulation.pack()
-tk.Button(window, text='Submit').pack()
 
 # --------------------------------------------------------------------------------------
 # Initial Population Size
@@ -53,13 +52,12 @@ def getUserInputInitialPopulationSize(val):
     GUI.user_input_initial_population_size = val
 
 
-PopulationSize = tk.Label(text="Population size")
-PopulationSize.place(x=55, y=25)
+PopulationSize = tk.Label(text="Initial Population Size - (Dimension) (Works)")
+PopulationSize.place(x=5, y=25)
 sliderPopulationSize = tk.Scale(window, from_=3, to=50, orient=HORIZONTAL,
                                 command=getUserInputInitialPopulationSize)
 sliderPopulationSize.set(20)
 sliderPopulationSize.pack(side=tk.RIGHT)
-tk.Button(window, text='Submit').place(x=70, y=90)
 sliderPopulationSize.place(x=45, y=50)
 
 # --------------------------------------------------------------------------------------
@@ -79,7 +77,6 @@ sliderPopulationInfected = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
 sliderPopulationInfected.set(5)
 sliderPopulationInfected.pack(side=tk.RIGHT)
 entry1 = tk.Entry(window)
-tk.Button(window, text='Submit').place(x=560, y=90)
 sliderPopulationInfected.place(x=535, y=50)
 
 # --------------------------------------------------------------------------------------
@@ -99,7 +96,6 @@ sliderPopulationDeath = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
                                  command=getUserInputDeathRate)
 sliderPopulationDeath.set(3)
 sliderPopulationDeath.pack(side=tk.RIGHT)
-tk.Button(window, text='Submit').place(x=70, y=520)
 sliderPopulationDeath.place(x=45, y=480)
 
 # --------------------------------------------------------------------------------------
@@ -119,7 +115,6 @@ sliderPopulationTransmission = tk.Scale(window, from_=0, to=100, orient=HORIZONT
                                         command=getUserInputTransmissionRate)
 sliderPopulationTransmission.set(75)
 sliderPopulationTransmission.pack(side=tk.RIGHT)
-tk.Button(window, text='Submit').place(x=560, y=520)
 sliderPopulationTransmission.place(x=535, y=480)
 
 # --------------------------------------------------------------------------------------
@@ -134,9 +129,9 @@ def getUserInputImmunityDuration():
 
 ImmunityLabel = tk.Label(text="Immunity Rate")
 ImmunityLabel.place(x=595, y=225)
-ImmunitySlider= tk.Scale(window, from_=0, to=100, command=getUserInputImmunityDuration)
+ImmunitySlider = tk.Scale(window, from_=0, to=100, command=getUserInputImmunityDuration)
 ImmunitySlider.place(x=570, y=260)
-tk.Button(window, text='Submit').place(x=600, y=300)
+
 
 # --------------------------------------------------------------------------------------
 # Infection Time
@@ -150,36 +145,27 @@ def getUserInputInfectionTime():
 
 TimeLabel = tk.Label(text="Infection Time")
 TimeLabel.place(x=65, y=225)
-TimeSlider= tk.Scale(window, from_=0, to=100, command=getUserInputInfectionTime)
+TimeSlider = tk.Scale(window, from_=0, to=100, command=getUserInputInfectionTime)
 TimeSlider.place(x=40, y=260)
-tk.Button(window, text='Submit').place(x=65, y=300)
 spacer = tk.Label(window, text="")
 spacer.pack()
 
 
 # Restart Simulation - this restarts the simulation based on user inputs
 def callbackReset():
-    # Initial Population Values
-    GUIcontroller.changeValues(
-        GUI.user_input_initial_infection_rate,
-        GUI.user_input_non_compliance_rate)
-
-    # Simulation Runtime Values
-    GUIcontroller.changeRates(
-        #GUI.user_input_infection_time,
-        #GUI.user_input_immunity_duration,
-        5,
-        20,
-        GUI.user_input_transmission_rate,
-        GUI.user_input_death_rate
-    )     
-    print(GUI.user_input_transmission_rate)
-
-    GUIcontroller.reset_simulation()
+    canvas.delete("all")
+    GUIcontroller.reset_simulation(GUI.user_input_initial_infection_rate,
+                                   GUI.user_input_non_compliance_rate,
+                                   GUI.user_input_initial_population_size,
+                                   5,
+                                   20,
+                                   GUI.user_input_transmission_rate,
+                                   GUI.user_input_death_rate
+                                   )
 
 
 button = tk.Button(
-    text="Restart Simulation",
+    text="Start Simulation",
     width=25,
     height=5,
     bg="white",

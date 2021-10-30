@@ -12,7 +12,6 @@ class Person:
     # This is the count of deceased
     deceased_counter = 0
 
-    #
     default_infection_length = 5
 
     default_immunity_duration = 20

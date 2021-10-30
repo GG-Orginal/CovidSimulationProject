@@ -5,17 +5,24 @@ from Simulation import *
 from Person import Person
 import time
 
-#startProgram()
+user_input_initial_population_size = 20
+
 
 def updateStuff():
-
     updateStatus(Simulation.current_population)
-    render_snapshot(Simulation.current_population)
-    updatePopStats(0,Person.infected_counter,Person.deceased_counter)
+    # render_snapshot(Simulation.current_population)
+    render_snapshot(Simulation.current_population, user_input_initial_population_size)
+    updatePopStats(0, Person.infected_counter, Person.deceased_counter)
     window.after(1000, updateStuff)
     # time.sleep(1)
 
 
-updateStuff()
+def start():
+    updateStuff()
+
 
 window.mainloop()
+
+
+class __main__:
+    pass
