@@ -3,14 +3,15 @@ from Person import Person
 import tkinter as tk
 import GUI
 import Simulation
-from Simulation import Simulation as sim
 import InitialPopulation
+import __main__
 
 
 ####################################################################################
 ########################### BACKEND TO GUI #########################################
 ####################################################################################
 
+# user_input_initial_population_size = 20
 
 class PersonPixel:
 
@@ -28,15 +29,26 @@ class PersonPixel:
         GUI.canvas.create_rectangle(self.x1, self.y1, self.x2, self.y2, fill=self.color, outline=self.outline)
 
 
-def render_snapshot(people):
-    height = len(people)
-    width = len(people[0])
+def render_snapshot(people, user_input_initial_population_size):
+    height = user_input_initial_population_size
+    width = user_input_initial_population_size
+
+    # # Render snapshot of current population
+    # for i in range(0, height, 1):
+    #     for j in range(0, width, 1):
+    #         # create pixel objects to pass to GUI
+    #         px = PersonPixel(people[i][j], i * 15, j * 15, 15)
+    #         px.drawPerson()
 
     # Render snapshot of current population
     for i in range(0, height, 1):
         for j in range(0, width, 1):
             # create pixel objects to pass to GUI
-            px = PersonPixel(people[i][j], i * 15, j * 15, 15)
+            px = PersonPixel(people[i][j],
+                             i * 300 / user_input_initial_population_size,
+                             j * 300 / user_input_initial_population_size,
+                             300 / user_input_initial_population_size
+)
             px.drawPerson()
 
 
@@ -53,18 +65,18 @@ def updatePopStats(new_infections, total_infected, total_deceased):
 ########################### GUI TO BACKEND #########################################
 ####################################################################################
 
-def reset_simulation():
+def reset_simulation(val1, val2, val3):
+    InitialPopulation.user_input_initial_infection_rate = int(val1)
+    InitialPopulation.user_input_non_compliance_rate = int(val2)
+
+    InitialPopulation.user_input_initial_population_size = int(val3)
+    Simulation.user_input_initial_population_size = int(val3)
+    GUI.user_input_initial_population_size = int(val3)
+    __main__.user_input_initial_population_size = int(val3)
     Simulation.reset_population()
-    # user_input_initial_infection_rate
+    __main__.start()
 
 
-def changeValues(val1, val2):
-    InitialPopulation.user_input_initial_infection_rate = val1
-    InitialPopulation.user_input_non_compliance_rate = val2
 
-
-def changeRates(infectionLength, immunityDuration, transmissionRate, deathRate):
-    Person.default_infection_length = infectionLength
-    Person.default_immunity_duration = immunityDuration
-    sim.rate_of_transmission = transmissionRate
-    sim.death_rate = deathRate
+class GUIcontroller:
+    pass

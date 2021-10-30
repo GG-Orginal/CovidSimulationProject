@@ -53,8 +53,8 @@ def getUserInputInitialPopulationSize(val):
     GUI.user_input_initial_population_size = val
 
 
-PopulationSize = tk.Label(text="Population size")
-PopulationSize.place(x=55, y=25)
+PopulationSize = tk.Label(text="Initial Population Size - (Dimension) (Works)")
+PopulationSize.place(x=5, y=25)
 sliderPopulationSize = tk.Scale(window, from_=3, to=50, orient=HORIZONTAL,
                                 command=getUserInputInitialPopulationSize)
 sliderPopulationSize.set(20)
@@ -161,27 +161,14 @@ spacer.pack()
 
 # Restart Simulation - this restarts the simulation based on user inputs
 def callbackReset():
-    # Initial Population Values
-    GUIcontroller.changeValues(
-        GUI.user_input_initial_infection_rate,
-        GUI.user_input_non_compliance_rate)
-
-    # Simulation Runtime Values
-    GUIcontroller.changeRates(
-        #GUI.user_input_infection_time,
-        #GUI.user_input_immunity_duration,
-        5,
-        20,
-        GUI.user_input_transmission_rate,
-        GUI.user_input_death_rate
-    )     
-    print(GUI.user_input_transmission_rate)
-
-    GUIcontroller.reset_simulation()
+    canvas.delete("all")
+    GUIcontroller.reset_simulation(GUI.user_input_initial_infection_rate,
+                                   GUI.user_input_non_compliance_rate,
+                                   GUI.user_input_initial_population_size)
 
 
 button = tk.Button(
-    text="Restart Simulation",
+    text="Start Simulation",
     width=25,
     height=5,
     bg="white",

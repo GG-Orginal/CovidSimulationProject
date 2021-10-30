@@ -1,12 +1,11 @@
 # Contains the logic for the loop that
 # executes the actual simulation
-import InitialPopulation
+from InitialPopulation import *
 from Person import Person
 
-class Simulation:
-    current_population = InitialPopulation.createPopulation()
-    rate_of_transmission = 75
-    death_rate = 3
+current_population = createPopulation()
+user_input_initial_population_size = 20
+
 
 # transmit method to see if the disease was transmitted between people
 def transmit(person, neighbor):
@@ -25,11 +24,7 @@ def transmit(person, neighbor):
         return
 
     # Generate a number that is less than 75, if so, it will return true
-    randrangenum = InitialPopulation.randrange(100)
-    #print(str(randrangenum) + "<" + str(Simulation.rate_of_transmission) + str(int(randrangenum) < int(Simulation.rate_of_transmission)))
-    random = int(randrangenum) < int(Simulation.rate_of_transmission)
-    #print(random)
-    #print(Simulation.rate_of_transmission)
+    random = randrange(100) < 75
     if random:
         # Possibility that the virus will be transmitted
         # Person.infected_counter += 1
@@ -52,36 +47,35 @@ def transmit(person, neighbor):
 def initiatePopulation():
     # original_population_state = [[Person() for x in range(10)] for y in range (10)]
     # original_population_state = np.empty((10, 10), dtype=Person)
-    original_population_state = InitialPopulation.createPopulation()
+    original_population_state = createPopulation()
     return original_population_state
 
 
 # Updates the Population
 def updateStatus(initial_population):
     new_population_state = initial_population[:]
+    # population_dimensions = int(InitialPopulation.user_input_initial_population_size)
 
     for i in range(len(new_population_state)):
         for j in range(len(new_population_state[i])):
             if initial_population[i][j].is_infected:
-                if j < 19:
+                if j < user_input_initial_population_size - 1:
                     transmit(initial_population[i][j], new_population_state[i][j + 1])
                 if j > 0:
                     transmit(initial_population[i][j], new_population_state[i][j - 1])
-                if i < 19:
+                if i < user_input_initial_population_size - 1:
                     transmit(initial_population[i][j], new_population_state[i + 1][j])
                 if i > 0:
                     transmit(initial_population[i][j], new_population_state[i - 1][j])
 
-    current_population = new_population_state[:]
+    Simulation.current_population = new_population_state[:]
     return new_population_state
 
 
-def reset_population(): 
-    Simulation.current_population = InitialPopulation.createPopulation()
+def reset_population():
+    Simulation.current_population = createPopulation()
     Person.reset_counters()
 
 
-
-
-
-    
+class Simulation:
+    pass
