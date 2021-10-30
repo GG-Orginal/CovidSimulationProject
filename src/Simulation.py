@@ -1,5 +1,6 @@
 # Contains the logic for the loop that
 # executes the actual simulation
+import InitialPopulation
 from InitialPopulation import *
 from Person import Person
 
@@ -24,7 +25,7 @@ def transmit(person, neighbor):
         return
 
     # Generate a number that is less than 75, if so, it will return true
-    random = randrange(100) < 75
+    random = randrange(100) < int(Simulation.rate_of_transmission)
     if random:
         # Possibility that the virus will be transmitted
         # Person.infected_counter += 1
@@ -78,4 +79,5 @@ def reset_population():
 
 
 class Simulation:
-    pass
+    rate_of_transmission = 75
+    death_rate = 3

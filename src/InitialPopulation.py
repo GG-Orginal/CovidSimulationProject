@@ -1,3 +1,4 @@
+from Person import Person
 from Person import *
 from random import randrange
 

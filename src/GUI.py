@@ -41,7 +41,6 @@ sliderPopulation = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
                             command=getUserInputNonComplianceRate)
 sliderPopulation.set(25)
 sliderPopulation.pack()
-tk.Button(window, text='Submit').pack()
 
 # --------------------------------------------------------------------------------------
 # Initial Population Size
@@ -59,7 +58,6 @@ sliderPopulationSize = tk.Scale(window, from_=3, to=50, orient=HORIZONTAL,
                                 command=getUserInputInitialPopulationSize)
 sliderPopulationSize.set(20)
 sliderPopulationSize.pack(side=tk.RIGHT)
-tk.Button(window, text='Submit').place(x=70, y=90)
 sliderPopulationSize.place(x=45, y=50)
 
 # --------------------------------------------------------------------------------------
@@ -79,7 +77,6 @@ sliderPopulationInfected = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
 sliderPopulationInfected.set(5)
 sliderPopulationInfected.pack(side=tk.RIGHT)
 entry1 = tk.Entry(window)
-tk.Button(window, text='Submit').place(x=560, y=90)
 sliderPopulationInfected.place(x=535, y=50)
 
 # --------------------------------------------------------------------------------------
@@ -99,7 +96,6 @@ sliderPopulationDeath = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
                                  command=getUserInputDeathRate)
 sliderPopulationDeath.set(3)
 sliderPopulationDeath.pack(side=tk.RIGHT)
-tk.Button(window, text='Submit').place(x=70, y=520)
 sliderPopulationDeath.place(x=45, y=480)
 
 # --------------------------------------------------------------------------------------
@@ -119,7 +115,6 @@ sliderPopulationTransmission = tk.Scale(window, from_=0, to=100, orient=HORIZONT
                                         command=getUserInputTransmissionRate)
 sliderPopulationTransmission.set(75)
 sliderPopulationTransmission.pack(side=tk.RIGHT)
-tk.Button(window, text='Submit').place(x=560, y=520)
 sliderPopulationTransmission.place(x=535, y=480)
 
 # --------------------------------------------------------------------------------------
@@ -134,10 +129,8 @@ def getUserInputImmunityDuration():
 
 ImmunityLabel = tk.Label(text="Immunity Rate")
 ImmunityLabel.place(x=595, y=225)
-ImmunitySpinbox = tk.Spinbox(window, from_=0, to=100)
-ImmunitySpinbox.place(x=570, y=260)
-percentButton = tk.Button(window, text='Submit', command=getUserInputImmunityDuration)
-percentButton.place(x=610, y=280)
+ImmunitySlider = tk.Scale(window, from_=0, to=100, command=getUserInputImmunityDuration)
+ImmunitySlider.place(x=570, y=260)
 
 # --------------------------------------------------------------------------------------
 # Infection Time
@@ -151,10 +144,9 @@ def getUserInputInfectionTime():
 
 TimeLabel = tk.Label(text="Infection Time")
 TimeLabel.place(x=65, y=225)
-TimeSpinbox = tk.Spinbox(window, from_=0, to=100)
-TimeSpinbox.place(x=40, y=260)
-percent2Button = tk.Button(window, text='Submit', command=getUserInputInfectionTime)
-percent2Button.place(x=75, y=280)
+TimeSlider = tk.Scale(window, from_=0, to=100, command=getUserInputInfectionTime)
+TimeSlider.place(x=40, y=260)
+
 spacer = tk.Label(window, text="")
 spacer.pack()
 
@@ -164,7 +156,12 @@ def callbackReset():
     canvas.delete("all")
     GUIcontroller.reset_simulation(GUI.user_input_initial_infection_rate,
                                    GUI.user_input_non_compliance_rate,
-                                   GUI.user_input_initial_population_size)
+                                   GUI.user_input_initial_population_size,
+                                   5,
+                                   20,
+                                   GUI.user_input_transmission_rate,
+                                   GUI.user_input_death_rate
+                                   )
 
 
 button = tk.Button(

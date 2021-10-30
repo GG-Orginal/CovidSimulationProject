@@ -17,7 +17,6 @@ def updateStuff():
     # time.sleep(1)
 
 
-
 def start():
     updateStuff()
 
