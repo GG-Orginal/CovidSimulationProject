@@ -50,7 +50,7 @@ def updateImmunityAndInfection(person):
         person.length_of_infection -= 1
 
         if person.length_of_infection == 0:
-            person.changeToHealthy();
+            person.changeToHealthy()
 
 
 # Updates the Population

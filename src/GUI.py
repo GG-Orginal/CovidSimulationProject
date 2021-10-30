@@ -133,6 +133,9 @@ ImmunityDurationSlider = tk.Scale(window, from_=0, to=100, command=getUserInputI
 ImmunityDurationSlider.set(20)
 ImmunityDurationSlider.place(x=570, y=260)
 
+note_Label = tk.Label(text = "Note: Values are only updated upon starting the simulation")
+note_Label.place(x = 213, y = 640)
+
 # --------------------------------------------------------------------------------------
 # Infection Duration
 # --------------------------------------------------------------------------------------
@@ -151,6 +154,8 @@ InfectionDurationSlider.place(x=40, y=260)
 
 spacer = tk.Label(window, text="")
 spacer.pack()
+
+
 
 
 # Start Simulation - this starts the simulation based on user inputs
@@ -175,6 +180,8 @@ button = tk.Button(
     command=callbackReset
 )
 button.pack()
+
+
 
 
 class GUI:
