@@ -1,23 +1,18 @@
 class Person:
-    # This is the indicator for a healthy person (green).
-    is_healthy = None
-    # This is the indicator for an infected person (red).
-    is_infected = None
-    # This is the indicator for a deceased person (black).
-    is_deceased = None
-
     # This is the count of infected
     infected_counter = 0
 
     # This is the count of deceased
     deceased_counter = 0
 
-    default_infection_length = 5
-
-    default_immunity_duration = 20
-
     # This is the count of non_compliance with social distancing
     non_compliance_counter = 0
+
+    # This is the time period an infected person will stay infected before becoming healthy (if they did not die)
+    default_infection_length = 5
+
+    # This is the time period an infected person will remain healthy after become healthy
+    default_immunity_duration = 20
 
     # This is the constructor
     def __init__(self, is_healthy=True, is_infected=False, is_deceased=False, is_compliant=True, age=25, gender="M"):
@@ -30,9 +25,6 @@ class Person:
         self.immune = False
         self.length_of_immunity = Person.default_immunity_duration
         self.length_of_infection = Person.default_infection_length
-
-    # def __init__(self):
-    #     self
 
     def changeToInfected(self):
         self.is_infected = True
@@ -57,7 +49,6 @@ class Person:
         self.is_infected = False
         Person.deceased_counter += 1
         Person.infected_counter -= 1
-
 
     @staticmethod
     def reset_counters():
