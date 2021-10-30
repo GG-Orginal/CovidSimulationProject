@@ -3,7 +3,6 @@ from Person import Person
 import tkinter as tk
 import GUI
 import Simulation
-from Simulation import Simulation as sim
 import InitialPopulation
 import __main__
 
@@ -58,19 +57,20 @@ def updatePopStats(new_infections, total_infected, total_deceased):
 ########################### GUI TO BACKEND #########################################
 ####################################################################################
 
-def reset_simulation(val1, val2, val3, infectionLength, immunityDuration, transmissionRate, deathRate):
-    InitialPopulation.user_input_initial_infection_rate = int(val1)
-    InitialPopulation.user_input_non_compliance_rate = int(val2)
+def reset_simulation(initialInfectionRate, nonComplianceRate, initialPopulationSize, infectionDuration,
+                     immunityDuration, transmissionRate, deathRate):
+    InitialPopulation.user_input_initial_infection_rate = int(initialInfectionRate)
+    InitialPopulation.user_input_non_compliance_rate = int(nonComplianceRate)
 
-    InitialPopulation.user_input_initial_population_size = int(val3)
-    Simulation.user_input_initial_population_size = int(val3)
-    GUI.user_input_initial_population_size = int(val3)
-    __main__.user_input_initial_population_size = int(val3)
+    InitialPopulation.user_input_initial_population_size = int(initialPopulationSize)
+    Simulation.user_input_initial_population_size = int(initialPopulationSize)
+    GUI.user_input_initial_population_size = int(initialPopulationSize)
+    __main__.user_input_initial_population_size = int(initialPopulationSize)
 
-    Person.default_infection_length = infectionLength
-    Person.default_immunity_duration = immunityDuration
-    sim.rate_of_transmission = transmissionRate
-    sim.death_rate = deathRate
+    Person.default_infection_length = int(infectionDuration)
+    Person.default_immunity_duration = int(immunityDuration)
+    Simulation.rate_of_transmission = int(transmissionRate)
+    Simulation.death_rate = int(deathRate)
 
     Simulation.reset_population()
     __main__.start()
