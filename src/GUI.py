@@ -132,6 +132,7 @@ ImmunityLabel.place(x=595, y=225)
 ImmunitySlider = tk.Scale(window, from_=0, to=100, command=getUserInputImmunityDuration)
 ImmunitySlider.place(x=570, y=260)
 
+
 # --------------------------------------------------------------------------------------
 # Infection Time
 # --------------------------------------------------------------------------------------
@@ -146,7 +147,6 @@ TimeLabel = tk.Label(text="Infection Time")
 TimeLabel.place(x=65, y=225)
 TimeSlider = tk.Scale(window, from_=0, to=100, command=getUserInputInfectionTime)
 TimeSlider.place(x=40, y=260)
-
 spacer = tk.Label(window, text="")
 spacer.pack()
 
