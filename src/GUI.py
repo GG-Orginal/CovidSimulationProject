@@ -134,10 +134,9 @@ def getUserInputImmunityDuration():
 
 ImmunityLabel = tk.Label(text="Immunity Rate")
 ImmunityLabel.place(x=595, y=225)
-ImmunitySpinbox = tk.Spinbox(window, from_=0, to=100)
-ImmunitySpinbox.place(x=570, y=260)
-percentButton = tk.Button(window, text='Submit', command=getUserInputImmunityDuration)
-percentButton.place(x=610, y=280)
+ImmunitySlider= tk.Scale(window, from_=0, to=100, command=getUserInputImmunityDuration)
+ImmunitySlider.place(x=570, y=260)
+tk.Button(window, text='Submit').place(x=600, y=300)
 
 # --------------------------------------------------------------------------------------
 # Infection Time
@@ -151,10 +150,9 @@ def getUserInputInfectionTime():
 
 TimeLabel = tk.Label(text="Infection Time")
 TimeLabel.place(x=65, y=225)
-TimeSpinbox = tk.Spinbox(window, from_=0, to=100)
-TimeSpinbox.place(x=40, y=260)
-percent2Button = tk.Button(window, text='Submit', command=getUserInputInfectionTime)
-percent2Button.place(x=75, y=280)
+TimeSlider= tk.Scale(window, from_=0, to=100, command=getUserInputInfectionTime)
+TimeSlider.place(x=40, y=260)
+tk.Button(window, text='Submit').place(x=65, y=300)
 spacer = tk.Label(window, text="")
 spacer.pack()
 
