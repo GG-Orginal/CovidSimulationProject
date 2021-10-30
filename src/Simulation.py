@@ -40,6 +40,19 @@ def transmit(person, neighbor):
             neighbor.changeToInfected()
 
 
+def updateImmunityAndInfection(person):
+    # Check if immunity is greater than 0
+    if person.length_of_immunity > 0:
+        person.length_of_immunity -= 1
+
+    # Check if infection is greater than 0
+    if person.length_of_infection > 0:
+        person.length_of_infection -= 1
+
+        if person.length_of_infection == 0:
+            person.changeToHealthy();
+
+
 # Updates the Population
 def updateStatus(initial_population):
     new_population_state = initial_population[:]
