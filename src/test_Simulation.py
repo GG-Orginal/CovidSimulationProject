@@ -79,7 +79,8 @@ class TestSimulation(unittest.TestCase):
         self.assertEqual(expected, actual)
 
 
-    #Test updateImmunityAndInfection for the length of infection greater than 0    def test_updateImmunityAndInfectionThree(self):
+    #Test updateImmunityAndInfection for the length of infection greater than 0    
+    def test_updateImmunityAndInfectionThree(self):
         sample_person = Person()
         sample_person.length_of_infection = 2
         expected = 1
