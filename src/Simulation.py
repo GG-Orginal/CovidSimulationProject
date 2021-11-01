@@ -2,6 +2,7 @@
 # executes the actual simulation
 from InitialPopulation import *
 from Person import Person
+from random import randrange
 
 current_population = createPopulation()
 user_input_initial_population_size = 20
@@ -11,6 +12,10 @@ death_rate = 3
 
 # transmit method to see if the disease was transmitted between people
 def transmit(person, neighbor):
+
+    if person.is_deceased or neighbor.is_deceased:
+        return
+
     # check to see if the person is compliant and the neighbor is compliant
     # if so, drop out
     if person.is_compliant and neighbor.is_compliant:
@@ -56,6 +61,14 @@ def updateImmunityAndInfection(person):
         if person.length_of_infection == 0:
             person.changeToHealthy()
 
+    if person.length_of_infection > 0:
+        random_death = randrange(100) + 1
+
+        if random_death < death_rate:
+            person.changeToDeceased()
+    
+
+
 
 # Updates the Population
 def updateStatus(initial_population):
@@ -65,6 +78,7 @@ def updateStatus(initial_population):
     for i in range(len(new_population_state)):
         for j in range(len(new_population_state[i])):
             if initial_population[i][j].is_infected:
+
                 if j < user_input_initial_population_size - 1:
                     transmit(initial_population[i][j], new_population_state[i][j + 1])
                 if j > 0:
@@ -73,6 +87,8 @@ def updateStatus(initial_population):
                     transmit(initial_population[i][j], new_population_state[i + 1][j])
                 if i > 0:
                     transmit(initial_population[i][j], new_population_state[i - 1][j])
+                
+                updateImmunityAndInfection(new_population_state[i][j])
 
     Simulation.current_population = new_population_state[:]
     return new_population_state

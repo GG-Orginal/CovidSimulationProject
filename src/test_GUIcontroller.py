@@ -46,6 +46,10 @@ class TestGUIController(unittest.TestCase):
 
         self.assertEqual(px.outline, 'black')
 
+    def test_callBackReset(self):
+        sample = Person(user_input_initial_infection_rate = 10)
+        
+
         
 
 
