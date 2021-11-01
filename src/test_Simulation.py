@@ -7,31 +7,29 @@ from src.Simulation import updateStatus
 
 
 class TestSimulation(unittest.TestCase):
-    def test_transmitBothCompliantNotTransmission(self):
-        p1 = Person(is_healthy=True, is_infected=False, is_deceased=False, is_compliant=True, age=25, gender="M")
-        p2 = Person(is_healthy=True, is_infected=False, is_deceased=False, is_compliant=True, age=25, gender="F")
+     def test_transmitBothCompliantNotTransmission(self):
+        p1 = Person(is_healthy=True, is_infected=False, is_deceased=False, is_compliant=True, is_vaccinated=False, age=25, gender="M")
+        p2 = Person(is_healthy=True, is_infected=False, is_deceased=False, is_compliant=True, is_vaccinated= False, age=25, gender="F")
         transmit_population = transmit(p1, p2)
         self.assertEqual(None, transmit_population)
 
     def test_transmitBothHealthyNotTransmission(self):
-        p1 = Person(is_healthy=True, is_infected=False, is_deceased=False, is_compliant=True, age=26, gender="M")
-        p2 = Person(is_healthy=True, is_infected=False, is_deceased=False, is_compliant=True, age=25, gender="F")
+        p1 = Person(is_healthy=True, is_infected=False, is_deceased=False, is_compliant=True, is_vaccinated= False, age=26, gender="M")
+        p2 = Person(is_healthy=True, is_infected=False, is_deceased=False, is_compliant=True, is_vaccinated= False, age=25, gender="F")
         transmit_population = transmit(p1, p2)
         self.assertEqual(None, transmit_population)
 
     def test_transmitBothInfectedNotTransmission(self):
-        p1 = Person(is_healthy=False, is_infected=True, is_deceased=False, is_compliant=False, age=25, gender="M")
-        p2 = Person(is_healthy=False, is_infected=True, is_deceased=False, is_compliant=False, age=25, gender="F")
+        p1 = Person(is_healthy=False, is_infected=True, is_deceased=False, is_compliant=False, is_vaccinated= False, age=25, gender="M")
+        p2 = Person(is_healthy=False, is_infected=True, is_deceased=False, is_compliant=False, is_vaccinated= False, age=25, gender="F")
         transmit_population = transmit(p1, p2)
         self.assertEqual(None, transmit_population)
 
-    def test_populationRow(self):
-        initial_population = initiatePopulation()
-        self.assertEqual(20, len(initial_population))
-
-    def test_populationColumn(self):
-        initial_population = initiatePopulation()
-        self.assertEqual(20, len(initial_population[10]))
+    def test_transmitBothVaccinatedNotTransmission(self):
+        p1 = Person(is_healthy=False, is_infected=False, is_deceased=False, is_compliant=False, is_vaccinated=True, age=25, gender="M")
+        p2 = Person(is_healthy=False, is_infected=False, is_deceased=False, is_compliant=False, is_vaccinated=True, age=25, gender="F")
+        transmit_population = transmit(p1, p2)
+        self.assertEqual(None, transmit_population)
 
     def test_update(self):
         population_array = [[Person() for j in range(20)] for i in range(20)]
