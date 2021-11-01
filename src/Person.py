@@ -15,11 +15,12 @@ class Person:
     default_immunity_duration = 20
 
     # This is the constructor
-    def __init__(self, is_healthy=True, is_infected=False, is_deceased=False, is_compliant=True, age=25, gender="M"):
+    def __init__(self, is_healthy=True, is_infected=False, is_deceased=False, is_compliant=True, is_vaccinated=True, age=25, gender="M"):
         self.is_healthy = is_healthy
         self.is_infected = is_infected
         self.is_deceased = is_deceased
         self.is_compliant = is_compliant
+        self.is_vaccinated = is_vaccinated
         self.age = age
         self.gender = gender
         self.immune = False
