@@ -24,6 +24,10 @@ def transmit(person, neighbor):
     # If both are already infected we will not transmit
     if neighbor.is_infected and person.is_infected:
         return
+    
+    # If both are vaccinated we will not transmit
+    if neighbor.is_vaccinated and person.is_vaccinated:
+        return
 
     # Generate a number that is less than 75, if so, it will return true
     random = randrange(100) < int(rate_of_transmission)
