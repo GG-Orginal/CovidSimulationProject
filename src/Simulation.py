@@ -26,7 +26,7 @@ def transmit(person, neighbor):
         return
     
     # If both are vaccinated we will not transmit
-    if neighbor.is_vaccinated and person.is_vaccinated:
+    if neighbor.is_vaccinated or person.is_vaccinated:
         return
 
     # Generate a number that is less than 75, if so, it will return true

@@ -30,9 +30,9 @@ def createPopulation():
     def vaccination():
         value_non_vaccinated = randrange(100) + 1
         if value_non_vaccinated > user_input_vaccination_rate:
-            is_vaccinated = True
-        else:
             is_vaccinated = False
+        else:
+            is_vaccinated = True
         return is_vaccinated
 
     # This is a list of all the individuals in the sample population
