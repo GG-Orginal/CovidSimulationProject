@@ -58,7 +58,7 @@ def updatePopStats(new_infections, total_infected, total_deceased):
 ####################################################################################
 
 def reset_simulation(initialInfectionRate, nonComplianceRate, initialPopulationSize, infectionDuration,
-                     immunityDuration, transmissionRate, deathRate):
+                     immunityDuration, transmissionRate, deathRate, start):
     InitialPopulation.user_input_initial_infection_rate = int(initialInfectionRate)
     InitialPopulation.user_input_non_compliance_rate = int(nonComplianceRate)
 
@@ -73,7 +73,9 @@ def reset_simulation(initialInfectionRate, nonComplianceRate, initialPopulationS
     Simulation.death_rate = int(deathRate)
 
     Simulation.reset_population()
-    __main__.start()
+
+    if start == 100:
+        __main__.start()
 
 
 class GUIcontroller:

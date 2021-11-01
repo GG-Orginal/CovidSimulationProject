@@ -167,8 +167,8 @@ def callbackReset():
                                    GUI.user_input_infection_duration,
                                    GUI.user_input_immunity_duration,
                                    GUI.user_input_transmission_rate,
-                                   GUI.user_input_death_rate
-                                   )
+                                   GUI.user_input_death_rate,
+                                   100)
 
 
 button = tk.Button(
