@@ -9,6 +9,7 @@ window = tk.Tk()
 window.configure()
 window.title('Coronavirus Simulation')
 window.geometry('750x750')
+window.minsize(700, 700)
 deceased = tk.Label(text="Total Deceased: ")
 entryDead = tk.Entry()
 totalInfections = tk.Label(text="Total Infections: ")
@@ -70,14 +71,14 @@ def getUserInputInitialInfectionRate(val):
     GUI.user_input_initial_infection_rate = val
 
 
+
 PopulationInfected = tk.Label(window, text="Initial Infection Rate %")
-PopulationInfected.place(x=560, y=25)
+PopulationInfected.place(relx=0.9, rely=0.05, anchor="e")
 sliderPopulationInfected = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
                                     command=getUserInputInitialInfectionRate)
-sliderPopulationInfected.set(5)
-sliderPopulationInfected.pack(side=tk.RIGHT)
+sliderPopulationInfected.set(3)
 entry1 = tk.Entry(window)
-sliderPopulationInfected.place(x=580, y=50)
+sliderPopulationInfected.place(relx=0.9, rely=0.1, anchor="e")
 
 # --------------------------------------------------------------------------------------
 # Death Rate
@@ -110,12 +111,11 @@ def getUserInputTransmissionRate(val):
 
 
 PopulationTransmission = tk.Label(text="Rate of \n Transmission %")
-PopulationTransmission.place(x=545, y=445)
+PopulationTransmission.place(relx=0.9, rely=0.62, anchor="e")
 sliderPopulationTransmission = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
                                         command=getUserInputTransmissionRate)
-sliderPopulationTransmission.set(75)
-sliderPopulationTransmission.pack(side=tk.RIGHT)
-sliderPopulationTransmission.place(x=535, y=480)
+sliderPopulationTransmission.set(3)
+sliderPopulationTransmission.place(relx=0.9, rely=0.67, anchor="e")
 
 # --------------------------------------------------------------------------------------
 # Immunity Duration
@@ -128,13 +128,10 @@ def getUserInputImmunityDuration(val):
 
 
 ImmunityDurationLabel = tk.Label(text="Immunity Duration (Days)")
-ImmunityDurationLabel.place(x=550, y=225)
+ImmunityDurationLabel.place(relx=0.95, rely=0.3, anchor="e")
 ImmunityDurationSlider = tk.Scale(window, from_=0, to=100, command=getUserInputImmunityDuration)
-ImmunityDurationSlider.set(20)
-ImmunityDurationSlider.place(x=570, y=260)
-
-note_Label = tk.Label(text = "Note: Values are only updated upon starting the simulation")
-note_Label.place(x = 213, y = 640)
+ImmunityDurationSlider.set(3)
+ImmunityDurationSlider.place(relx=0.9, rely=0.4, anchor="e")
 
 # --------------------------------------------------------------------------------------
 # Infection Duration
@@ -181,7 +178,12 @@ button = tk.Button(
 )
 button.pack()
 
-
+spacer = tk.Label(window, text="")
+spacer.pack()
+spacer = tk.Label(window, text="")
+spacer.pack()
+note_Label = tk.Label(text="Note: Values are only updated upon starting the simulation")
+note_Label.pack()
 
 
 class GUI:
