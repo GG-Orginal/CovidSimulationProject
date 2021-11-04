@@ -5,6 +5,9 @@ class Person:
     # This is the count of deceased
     deceased_counter = 0
 
+    # New infections counter
+    new_infections = 0
+
     # This is the count of non_compliance with social distancing
     non_compliance_counter = 0
 
@@ -55,3 +58,4 @@ class Person:
     def reset_counters():
         Person.infected_counter = 0
         Person.deceased_counter = 0
+        Person.new_infections = 0

@@ -72,6 +72,7 @@ def updateImmunityAndInfection(person):
 
 # Updates the Population
 def updateStatus(initial_population):
+    Person.new_infections = Person.infected_counter
     new_population_state = initial_population[:]
     # population_dimensions = int(InitialPopulation.user_input_initial_population_size)
 
@@ -91,6 +92,8 @@ def updateStatus(initial_population):
                 updateImmunityAndInfection(new_population_state[i][j])
 
     Simulation.current_population = new_population_state[:]
+
+    Person.new_infections = Person.infected_counter - Person.new_infections
     return new_population_state
 
 
