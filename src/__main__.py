@@ -3,6 +3,7 @@ from GUIcontroller import *
 from Simulation import *
 from Person import Person
 
+
 user_input_initial_population_size = 20
 
 

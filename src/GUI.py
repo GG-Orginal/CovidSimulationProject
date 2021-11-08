@@ -4,12 +4,28 @@ import tkinter as tk
 import GUIcontroller
 from tkinter import HORIZONTAL
 
+
 # Window set up
 window = tk.Tk()
 window.configure()
 window.title('Coronavirus Simulation')
 window.geometry('750x750')
-window.minsize(700, 700)
+window.minsize(700, 950)
+
+#------------------------------------------
+#Explaination of the Simulation
+explain = tk.Label (text = '\n Coronavirus Simulation: ', font = ('Helvetica', 12, 'bold', 'underline'))
+explain.pack()
+
+
+explain2 = tk.Label (text = ' \n This simulation will predict the number \n of covid cases based on your customizations. ', font = ('Helvetica', 10, "italic"))
+explain2.pack()
+
+instructions = tk.Label (text = '\n \n Choose from the sliders presented and watch the virus grow. \n')
+instructions.pack()
+
+#---------------------------------------------
+
 deceased = tk.Label(text="Total Deceased: ")
 entryDead = tk.Entry()
 totalInfections = tk.Label(text="Total Infections: ")
@@ -22,6 +38,16 @@ totalInfections.pack()
 entryTotalInf.pack()
 newInfections.pack()
 entryNewInf.pack()
+
+#-------------------------------------------------------
+#Legend: 
+legend = tk.Label (text = '\n Legend: ', font = ('Helvetica', 9, 'bold', 'underline'))
+legend_att = tk.Label (text = ' Green = Healthy    Red = Infected     Black = Deceased', font = ('Helvetica', 8, "italic"))
+
+legend.pack()
+legend_att.pack()
+#---------------------------------------------------------
+
 canvas = tk.Canvas(window, width=300, height=300, bg="White")
 canvas.place(relx=0.5, rely=0.5, anchor="center")
 canvas.pack(pady=10)
@@ -182,7 +208,13 @@ spacer = tk.Label(window, text="")
 spacer.pack()
 spacer = tk.Label(window, text="")
 spacer.pack()
-note_Label = tk.Label(text="Note: Values are only updated upon starting the simulation")
+#--------------------------------------------
+#Note
+
+note = tk.Label (text = 'Note: ', font = ('Helvetica', 10, 'bold', 'italic'))
+note_Label = tk.Label(text=" Values are only updated upon starting the simulation", font = ('Helvetica', 10, 'italic'))
+
+note.pack()
 note_Label.pack()
 
 
