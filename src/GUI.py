@@ -90,12 +90,12 @@ def getUserInputInitialPopulationSize(val):
 
 
 PopulationSize = tk.Label(text="Initial Population Size - (Dimension)")
-PopulationSize.place(x=5, y=25)
+PopulationSize.place(x=5, y=40)
 sliderPopulationSize = tk.Scale(window, from_=3, to=50, orient=HORIZONTAL,
                                 command=getUserInputInitialPopulationSize)
 sliderPopulationSize.set(20)
 sliderPopulationSize.pack(side=tk.RIGHT)
-sliderPopulationSize.place(x=45, y=50)
+sliderPopulationSize.place(x=45, y=75)
 
 # --------------------------------------------------------------------------------------
 # Initial Infection Rate
@@ -128,12 +128,12 @@ def getUserInputDeathRate(val):
 
 
 PopulationDeath = tk.Label(text="Death Rate %")
-PopulationDeath.place(x=65, y=455)
+PopulationDeath.place(x=65, y=580)
 sliderPopulationDeath = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
                                  command=getUserInputDeathRate)
 sliderPopulationDeath.set(3)
 sliderPopulationDeath.pack(side=tk.RIGHT)
-sliderPopulationDeath.place(x=45, y=480)
+sliderPopulationDeath.place(x=45, y=610)
 
 # --------------------------------------------------------------------------------------
 # Transmission Rate
@@ -180,10 +180,10 @@ def getUserInputInfectionDuration(val):
 
 
 InfectionDurationLabel = tk.Label(text="Infection Duration (Days)")
-InfectionDurationLabel.place(x=20, y=225)
+InfectionDurationLabel.place(x=20, y=280)
 InfectionDurationSlider = tk.Scale(window, from_=0, to=100, command=getUserInputInfectionDuration)
 InfectionDurationSlider.set(5)
-InfectionDurationSlider.place(x=40, y=260)
+InfectionDurationSlider.place(x=40, y=325)
 
 spacer = tk.Label(window, text="")
 spacer.pack()
