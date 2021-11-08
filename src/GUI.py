@@ -102,7 +102,7 @@ PopulationInfected = tk.Label(window, text="Initial Infection Rate %")
 PopulationInfected.place(relx=0.9, rely=0.05, anchor="e")
 sliderPopulationInfected = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
                                     command=getUserInputInitialInfectionRate)
-sliderPopulationInfected.set(3)
+sliderPopulationInfected.set(5)
 entry1 = tk.Entry(window)
 sliderPopulationInfected.place(relx=0.9, rely=0.1, anchor="e")
 
@@ -140,7 +140,7 @@ PopulationTransmission = tk.Label(text="Rate of \n Transmission %")
 PopulationTransmission.place(relx=0.9, rely=0.62, anchor="e")
 sliderPopulationTransmission = tk.Scale(window, from_=0, to=100, orient=HORIZONTAL,
                                         command=getUserInputTransmissionRate)
-sliderPopulationTransmission.set(3)
+sliderPopulationTransmission.set(75)
 sliderPopulationTransmission.place(relx=0.9, rely=0.67, anchor="e")
 
 # --------------------------------------------------------------------------------------
@@ -156,7 +156,7 @@ def getUserInputImmunityDuration(val):
 ImmunityDurationLabel = tk.Label(text="Immunity Duration (Days)")
 ImmunityDurationLabel.place(relx=0.95, rely=0.3, anchor="e")
 ImmunityDurationSlider = tk.Scale(window, from_=0, to=100, command=getUserInputImmunityDuration)
-ImmunityDurationSlider.set(3)
+ImmunityDurationSlider.set(20)
 ImmunityDurationSlider.place(relx=0.9, rely=0.4, anchor="e")
 
 # --------------------------------------------------------------------------------------

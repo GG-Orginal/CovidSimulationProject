@@ -29,6 +29,7 @@ class PersonPixel:
 
 
 def render_snapshot(people, user_input_initial_population_size):
+    GUI.canvas.delete("all")
     height = user_input_initial_population_size
     width = user_input_initial_population_size
 
