@@ -12,7 +12,6 @@ death_rate = 3
 
 # transmit method to see if the disease was transmitted between people
 def transmit(person, neighbor):
-
     if person.is_deceased or neighbor.is_deceased:
         return
 
@@ -29,7 +28,7 @@ def transmit(person, neighbor):
     # If both are already infected we will not transmit
     if neighbor.is_infected and person.is_infected:
         return
-    
+
     # If both are vaccinated we will not transmit
     if neighbor.is_vaccinated or person.is_vaccinated:
         return
@@ -66,8 +65,6 @@ def updateImmunityAndInfection(person):
 
         if random_death < death_rate:
             person.changeToDeceased()
-    
-
 
 
 # Updates the Population
@@ -88,19 +85,23 @@ def updateStatus(initial_population):
                     transmit(initial_population[i][j], new_population_state[i + 1][j])
                 if i > 0:
                     transmit(initial_population[i][j], new_population_state[i - 1][j])
-                
+
                 updateImmunityAndInfection(new_population_state[i][j])
 
     Simulation.current_population = new_population_state[:]
 
     Person.new_infections = Person.infected_counter - Person.new_infections
+
+    Simulation.simulation_days_counter = Simulation.simulation_days_counter + 1
     return new_population_state
 
 
 def reset_population():
     Simulation.current_population = createPopulation()
+    Simulation.simulation_days_counter = 0
     Person.reset_counters()
 
 
 class Simulation:
-    pass
+    simulation_days_counter = 0
+

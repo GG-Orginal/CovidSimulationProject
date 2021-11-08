@@ -6,6 +6,8 @@ from tkinter import HORIZONTAL
 
 
 # Window set up
+from src.Simulation import Simulation
+
 window = tk.Tk()
 window.configure()
 window.title('Coronavirus Simulation')
@@ -26,18 +28,26 @@ instructions.pack()
 
 #---------------------------------------------
 
+simulationDays = tk.Label(text="Days: ")
+entrySimulationDays = tk.Entry()
+
 deceased = tk.Label(text="Total Deceased: ")
 entryDead = tk.Entry()
 totalInfections = tk.Label(text="Total Infections: ")
 entryTotalInf = tk.Entry()
 newInfections = tk.Label(text="New Infections: ")
 entryNewInf = tk.Entry()
+
+simulationDays.pack()
+entrySimulationDays.pack()
+
 deceased.pack()
 entryDead.pack()
 totalInfections.pack()
 entryTotalInf.pack()
 newInfections.pack()
 entryNewInf.pack()
+
 
 #-------------------------------------------------------
 #Legend: 
@@ -184,6 +194,7 @@ spacer.pack()
 # Start Simulation - this starts the simulation based on user inputs
 def callbackReset():
     canvas.delete("all")
+
     GUIcontroller.reset_simulation(GUI.user_input_initial_infection_rate,
                                    GUI.user_input_non_compliance_rate,
                                    GUI.user_input_initial_population_size,

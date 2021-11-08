@@ -45,13 +45,15 @@ def render_snapshot(people, user_input_initial_population_size):
             px.drawPerson()
 
 
-def updatePopStats(new_infections, total_infected, total_deceased):
+def updatePopStats(new_infections, total_infected, total_deceased, simulation_days_counter):
     GUI.entryDead.delete(0, tk.END)
     GUI.entryDead.insert(0, total_deceased)
     GUI.entryTotalInf.delete(0, tk.END)
     GUI.entryTotalInf.insert(1, total_infected)
     GUI.entryNewInf.delete(0, tk.END)
     GUI.entryNewInf.insert(0, new_infections)
+    GUI.entrySimulationDays.delete(0, tk.END)
+    GUI.entrySimulationDays.insert(0, simulation_days_counter)
 
 
 ####################################################################################

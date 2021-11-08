@@ -10,7 +10,7 @@ user_input_initial_population_size = 20
 def updateStuff():
     updateStatus(Simulation.current_population)
     render_snapshot(Simulation.current_population, user_input_initial_population_size)
-    updatePopStats(Person.new_infections, Person.infected_counter, Person.deceased_counter)
+    updatePopStats(Person.new_infections, Person.infected_counter, Person.deceased_counter, Simulation.simulation_days_counter)
     window.after(1000, updateStuff)
 
 
