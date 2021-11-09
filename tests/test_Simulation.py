@@ -3,7 +3,7 @@ import unittest
 from src.Person import Person
 from src.Simulation import transmit
 from src.Simulation import updateStatus
-from Simulation import updateImmunityAndInfection
+from src.Simulation import updateImmunityAndInfection
 
 
 class TestSimulation(unittest.TestCase):

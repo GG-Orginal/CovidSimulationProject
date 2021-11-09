@@ -1,7 +1,7 @@
 import unittest
 
-from GUIcontroller import *
-import GUIcontroller
+from src.GUIcontroller import GUIcontroller
+
 
 
 class TestGUIController(unittest.TestCase):
