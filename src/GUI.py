@@ -223,7 +223,7 @@ def callbackReset():
 button = tk.Button(
     text="Start Simulation",
     width=25,
-    height=5,
+    height=2,
     bg="white",
     fg="black",
     command=callbackReset
