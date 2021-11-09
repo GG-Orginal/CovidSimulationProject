@@ -27,10 +27,21 @@ explain2.pack()
 explain3 = tk.Label (text = ' \n Use the sliders located on the sides and bottom  \n of  the  screen  to customize your simulation. \n The grid will change based on the dimensions \n you choose and the number of infections \n will be based on the rates you provide. ', font = ('Helvetica', 10, "italic"))
 explain3.pack()
 
-instructions = tk.Label (text = '\n \n Choose from the sliders presented and watch the virus grow. \n')
+instructions = tk.Label (text = '\n \n Choose from the sliders presented and watch the virus grow. ')
 instructions.pack()
 
 #---------------------------------------------
+
+#Note
+
+note = tk.Label (text = 'Note: Values are only updated upon starting the simulation', font = ('Helvetica', 8, 'bold', 'italic') )
+
+
+note.pack()
+
+
+
+#-------------------------------------------------------
 
 simulationDays = tk.Label(text="Days: ")
 entrySimulationDays = tk.Entry()
@@ -52,8 +63,8 @@ entryTotalInf.pack()
 newInfections.pack()
 entryNewInf.pack()
 
+#-----------------------------------------------------
 
-#-------------------------------------------------------
 #Legend: 
 legend = tk.Label (text = '\n Legend: ', font = ('Helvetica', 9, 'bold', 'underline'))
 legend_att = tk.Label (text = ' Green = Healthy    Red = Infected     Black = Deceased', font = ('Helvetica', 8, "italic"))
@@ -223,14 +234,6 @@ spacer = tk.Label(window, text="")
 spacer.pack()
 spacer = tk.Label(window, text="")
 spacer.pack()
-#--------------------------------------------
-#Note
-
-note = tk.Label (text = 'Note: ', font = ('Helvetica', 10, 'bold', 'italic'))
-note_Label = tk.Label(text=" Values are only updated upon starting the simulation", font = ('Helvetica', 10, 'italic'))
-
-note.pack()
-note_Label.pack()
 
 
 class GUI:
