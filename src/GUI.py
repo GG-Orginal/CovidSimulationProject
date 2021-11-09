@@ -6,7 +6,8 @@ from tkinter import HORIZONTAL
 
 
 # Window set up
-from src.Simulation import Simulation
+from Simulation import Simulation
+#from src.Simulation
 
 window = tk.Tk()
 window.configure()
@@ -22,6 +23,9 @@ explain.pack()
 
 explain2 = tk.Label (text = ' \n This simulation will predict the number \n of covid cases based on your customizations. ', font = ('Helvetica', 10, "italic"))
 explain2.pack()
+
+explain3 = tk.Label (text = ' \n Use the sliders located on the sides and bottom  \n of  the  screen  to customize your simulation. \n The grid will change based on the dimensions \n you choose and the number of infections \n will be based on the rates you provide. ', font = ('Helvetica', 10, "italic"))
+explain3.pack()
 
 instructions = tk.Label (text = '\n \n Choose from the sliders presented and watch the virus grow. \n')
 instructions.pack()
