@@ -91,6 +91,9 @@ def updateStatus(initial_population):
     Simulation.current_population = new_population_state[:]
 
     Person.new_infections = Person.infected_counter - Person.new_infections
+    if Person.new_infections < 0:
+        Person.new_infections = 0
+
 
     Simulation.simulation_days_counter = Simulation.simulation_days_counter + 1
     return new_population_state
