@@ -49,6 +49,8 @@ def createPopulation():
             p1.is_compliant = compliance()
             p1.is_vaccinated = vaccination()
             population_array[i][j] = p1
+            if p1.is_infected:
+                Person.infected_counter += 1
     return population_array
 
 

@@ -100,9 +100,10 @@ def updateStatus(initial_population):
 
 
 def reset_population():
-    Simulation.current_population = createPopulation()
     Simulation.simulation_days_counter = 0
     Person.reset_counters()
+    Simulation.current_population = createPopulation()
+
 
 
 class Simulation:
